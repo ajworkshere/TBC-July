@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BADGER CO | Resilient Luxury Footwear</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { background-color: #050505; color: #f5f5f5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .luxury-serif { font-family: 'Playfair Display', serif; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -2px; left: 0; background-color: white; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .hero-title, .hero-sub, .hero-btn, .product-image, .product-info { opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <nav class="p-8 flex justify-between items-center fixed w-full z-50 mix-blend-difference">
+        <div class="text-2xl font-bold tracking-[0.2em] luxury-serif" id="logo">BADGER</div>
+        <div class="space-x-10 text-[10px] uppercase tracking-[0.3em] hidden md:flex items-center">
+            <a href="index.html" class="nav-link">Collections</a>
+            <a href="philosophy.html" class="nav-link">Philosophy</a>
+            <a href="journal.html" class="nav-link">Journal</a>
+            <a href="#" class="bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-gray-200 transition-colors tracking-widest">The Registry</a>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900/50 via-transparent to-transparent -z-10"></div>
+        
+        <h1 class="hero-title text-6xl md:text-9xl luxury-serif mb-6 leading-tight">
+            The Art of <br> <span class="italic font-light">Persistence.</span>
+        </h1>
+        <p class="hero-sub max-w-lg text-zinc-500 tracking-[0.15em] mb-10 text-sm md:text-base uppercase">
+            Engineering the future of footwear for the <br>entrepreneur and activist.
+        </p>
+        <div class="hero-btn">
+            <button class="group relative px-12 py-5 border border-white/20 uppercase tracking-[0.4em] text-[10px] overflow-hidden">
+                <span class="relative z-10 group-hover:text-black transition-colors duration-500">Explore Specification</span>
+                <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </button>
+        </div>
+    </section>
+
+    <section class="min-h-screen py-32 px-10 grid grid-cols-1 md:grid-cols-12 gap-16 items-center border-t border-white/5">
+        <div class="md:col-span-7 product-image">
+            <div class="aspect-video bg-zinc-900 border border-white/5 rounded-sm flex items-center justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+                <p class="text-zinc-600 uppercase tracking-widest text-xs z-10">[ Archive 001 // Technical View ]</p>
+                <div class="absolute bottom-6 left-6 text-[10px] text-zinc-500 tracking-widest uppercase">Resilience Matrix // 01</div>
+            </div>
+        </div>
+        
+        <div class="md:col-span-5 product-info">
+            <span class="text-[#703d1b] uppercase tracking-[0.5em] text-[10px] mb-4 block font-bold">Material Integrity</span>
+            <h2 class="text-5xl luxury-serif mb-8 leading-snug">Architectural <br>Integrity</h2>
+            <p class="text-zinc-400 leading-relaxed mb-10 font-light text-lg">
+                Your footwear should be as resilient as your vision. We utilize a high-density <strong>Vegan Micro-Matrix</strong>, engineered with a technical welt for a lifetime of performance.
+            </p>
+            <div class="space-y-6">
+                <div class="flex items-center gap-4 text-[10px] tracking-widest text-zinc-500">
+                    <span class="w-8 h-[1px] bg-[#703d1b]"></span> 01 / ETHICAL PROCUREMENT
+                </div>
+                <div class="flex items-center gap-4 text-[10px] tracking-widest text-zinc-500">
+                    <span class="w-8 h-[1px] bg-[#703d1b]"></span> 02 / ANATOMICAL ENGINEERING
+                </div>
+                <div class="flex items-center gap-4 text-[10px] tracking-widest text-zinc-500">
+                    <span class="w-8 h-[1px] bg-[#703d1b]"></span> 03 / SOCIAL IMPACT MODEL
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5">
+        <p class="text-zinc-600 text-[10px] uppercase tracking-[0.8em] mb-4">Launch Phase July 2026</p>
+        <h3 class="luxury-serif text-2xl italic text-white/80">The Badger Co.</h3>
+    </footer>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Entrance Timeline
+        const tl = gsap.timeline({ defaults: { ease: "power4.out" }});
+        
+        tl.to(".hero-title", { opacity: 1, y: -20, duration: 1.5, delay: 0.5 })
+          .to(".hero-sub", { opacity: 1, y: -10, duration: 1.2 }, "-=1")
+          .to(".hero-btn", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+          .from("#logo", { opacity: 0, x: -20, duration: 1 }, "-=1.5");
+
+        // 2. Scroll Animation for Product Section
+        gsap.to(".product-image", {
+            scrollTrigger: {
+                trigger: ".product-image",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            opacity: 1,
+            x: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+
+        gsap.to(".product-info", {
+            scrollTrigger: {
+                trigger: ".product-info",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            delay: 0.3,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+</html>
